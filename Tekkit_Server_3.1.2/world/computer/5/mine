@@ -1,0 +1,159 @@
+print("Enter desired length of tunnels")
+ 
+local branchLength = read()
+ 
+print("Is this turtle on the right:r or left:l")
+ 
+local turtleSide = read()
+ 
+print("How many branches?")
+ 
+local branches = read()
+ 
+local shaftLength = 1
+ 
+local totalLength = shaftLength * 2 + branchLength * 2
+ 
+local fuelStuff = 0
+ 
+function diggyDiggy()
+  turtle.forward()
+  turtle.digUp()
+  turtle.digDown()
+  turtle.dig()
+end
+ 
+function gravel()
+  turtle.detect()
+  if turtle.detect() == true then
+    diggyDiggy()
+    gravelception()
+  end
+end
+ 
+function gravelception()
+  turtle.detect()
+  if turtle.detect() == true then
+    diggyDiggy()
+    gravel()
+  end
+end
+ 
+function awYiss()
+  totalLength = branchLength * 2 + shaftLength * 2
+  turtle.getFuelLevel() 
+  fuelStuff = (totalLength - turtle.getFuelLevel()) / 96
+  if fuelStuff < turtle.getItemCount(1) then
+    if fuelStuff < 5 then
+      if fuelStuff < 4 then
+        if fuelStuff < 3 then
+          if fuelStuff < 2 then
+            if fuelStuff < 1 then
+              if fuelStuff < 0 then
+              print ("requires no fuel")
+              else   
+              turtle.refuel(1)
+              end
+            else
+            turtle.refuel(2)
+            end
+          else
+          turtle.refuel(3)
+          end
+        else
+        turtle.refuel(4)
+        end
+      else
+      turtle.refuel(5)
+      end
+      turtle.dig()
+      for i = 1,shaftLength do
+        diggyDiggy()
+        turtle.detect()
+        if turtle.detect() == true then
+          gravelception()
+        end
+      end
+      if turtleSide == "r" then
+        turtle.turnRight()
+      end
+      if turtleSide == "l" then
+        turtle.turnLeft()
+      end
+      turtle.dig()
+      for i = 1,branchLength do
+        diggyDiggy()
+        turtle.detect()
+        if turtle.detect() == true then
+          gravelception()
+        end
+      end
+      turtle.turnRight()
+      turtle.turnRight()
+      for i = 1,branchLength do
+        turtle.forward()
+      end 
+      if turtleSide == "r" then
+        turtle.turnLeft()
+      end
+      if turtleSide == "l" then
+        turtle.turnRight()
+      end
+      for i = 1,shaftLength do
+        turtle.forward()
+      end
+      shaftLength = shaftLength + 3
+    else
+    print("I declare the distance I must travel to be far too long!")
+    end
+  else
+  print("not enough fuel to continue")
+  end
+end
+ 
+for i = 1,branches do
+  awYiss()
+  if turtleSide == "r" then
+    turtle.turnLeft()
+  end
+  if turtleSide == "l" then
+    turtle.turnRight()
+  end
+  turtle.select(2)
+  turtle.drop()
+  turtle.select(3)
+  turtle.drop()
+  turtle.select(4)
+  turtle.drop()
+  turtle.select(5)
+  turtle.drop()
+  turtle.select(6)
+  turtle.drop()
+  turtle.select(7)
+  turtle.drop()
+  turtle.select(8)
+  turtle.drop()
+  turtle.select(9)
+  turtle.drop()
+  turtle.select(10)
+  turtle.drop()
+  turtle.select(11)
+  turtle.drop()
+  turtle.select(12)
+  turtle.drop()
+  turtle.select(13)
+  turtle.drop()
+  turtle.select(14)
+  turtle.drop()
+  turtle.select(15)
+  turtle.drop()
+  turtle.select(16)
+  turtle.drop()
+  turtle.select(1)
+  if turtleSide == "r" then
+    turtle.turnLeft()
+  end
+  if turtleSide == "l" then
+    turtle.turnRight()
+  end
+end

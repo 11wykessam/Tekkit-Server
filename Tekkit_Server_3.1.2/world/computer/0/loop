@@ -1,0 +1,5 @@
+for i=1,100 do
+rs.setOutput("front", true)
+sleep(1)
+rs.setOutput("front", false)
+end
